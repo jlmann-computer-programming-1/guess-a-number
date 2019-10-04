@@ -2,18 +2,25 @@ import random
 
 rand = random.randint(1, 100)
 print("I'm thinking of a number from 1 to 100.")
+print("")
 
-guess = -1
+guess = 0
 
 while guess != rand:
-    guess = input("Take a guess: ")
-    guess = int(guess)
+    user_guess = input("Take a guess: \n")
     
-    if guess < rand:
-        print("You guessed too low.")
-    elif guess > rand:
-        print("You guessed too high.")
-    else:
-        print("You got it!")
+    try:
+        guess = int(user_guess)
+    
+        if guess < rand:
+            print("You guessed too low.")
+            
+        elif guess > rand:
+            print("You guessed too high.")
 
+    except:
+        print("Please type a number!")
+
+print("")
+print("You got it!")
 print("Game over")
